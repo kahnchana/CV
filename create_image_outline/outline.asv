@@ -1,0 +1,38 @@
+function [ output_args ] = outline( x,z1,z2,y )
+%sketches outline of image
+%   uses differences along x and y axes to sketch outline. x=max diff,
+%   y=times to diff, z=max pooling
+
+if nargin<4
+    y=1;
+end
+
+R=imread('Penguins.jpg');
+
+a=diff(R,y,1);
+b=diff(R,y,2);
+
+a=cat(1,a,zeros(y,1024,3));
+b=cat(2,b,zeros(768,y,3));
+
+for 
+a = cat(3,ordfilt2(a(:,:,1),z1^2,ones(z1,z1)),ordfilt2(a(:,:,2),z1^2,ones(z1,z1)),ordfilt2(a(:,:,2),z1^2,ones(z1,z1)));
+b = cat(3,ordfilt2(b(:,:,1),z1^2,ones(z1,z1)),ordfilt2(b(:,:,2),z1^2,ones(z1,z1)),ordfilt2(b(:,:,2),z1^2,ones(z1,z1)));
+
+
+c=a+b;
+d=(c<x);
+d=d*255;
+clear a;
+clear b;
+clear c;
+
+figure;
+%close all;
+% subplot(1,2,1);
+% imshow(R)
+% subplot(1,2,2);
+imshow(d)
+
+end
+
