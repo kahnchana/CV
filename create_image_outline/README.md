@@ -1,4 +1,4 @@
-#Drawing Outlines of a RGB Image
+# Drawing Outlines of a RGB Image
 
 The simple idea of taking differences between adjacent values is used here. We incorporate the concept of max pooling as well to reduce noise and unwanted fluctuations in the outlines. 
 
