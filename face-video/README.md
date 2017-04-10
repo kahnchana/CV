@@ -5,4 +5,5 @@ This code detects the position of the face and eyes of a person in a video. Uses
 Applications: Surveillance
 
 Simply run (path should be folder containing face_video.py):
+
 python face_video.py
